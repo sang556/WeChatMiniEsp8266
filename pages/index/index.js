@@ -1,7 +1,7 @@
 import mqtt from '../../utils/mqtt.js';
 
 //连接的服务器域名，注意格式！！！
-const host = 'wxs://www.xuhong.com/mqtt';
+const host = 'wxs://tiandongli.cn/mqtt';
 Page({
   data: {
     client: null,
@@ -9,11 +9,11 @@ Page({
     reconnectCounts: 0,
     //MQTT连接的配置
     options: {
-      protocolVersion: 4, //MQTT连接协议版本
-      clientId: 'miniTest',
+      protocolVersion: 5, //MQTT连接协议版本
+      clientId: 'tdl-bms-uni-test',
       clean: false,
-      password: 'xuhong12346',
-      username: 'admin',
+      password: '',
+      username: '',
       reconnectPeriod: 1000, //1000毫秒，两次重新连接之间的间隔
       connectTimeout: 30 * 1000, //1000毫秒，两次重新连接之间的间隔
       resubscribe: true //如果连接断开并重新连接，则会再次自动订阅已订阅的主题（默认true）

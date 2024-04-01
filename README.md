@@ -26,3 +26,21 @@
  ---------------------------
  
  ![Alt text](png/screen.png)
+
+## 附Nginx反向代理配置
+
+# 添加反向代理
+location /mqtt {
+  #proxy_pass http://127.0.0.1:8083/mqtt;
+        proxy_pass https://tiandongli.cn:8084;
+  proxy_redirect off;
+        #proxy_set_header Host $host;
+  proxy_set_header Host tiandongli.cn:8084;
+  proxy_set_header Sec-WebSocket-Protocol mqtt;
+        #proxy_set_header X-Real-IP $remote_addr;
+        #proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        # client_max_body_size 35m;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+}
